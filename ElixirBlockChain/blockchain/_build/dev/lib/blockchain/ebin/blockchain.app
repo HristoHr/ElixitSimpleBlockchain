@@ -1,0 +1,9 @@
+{application,blockchain,
+             [{applications,[kernel,stdlib,elixir,logger,gb_merkle_trees]},
+              {description,"blockchain"},
+              {modules,['Elixir.Block','Elixir.Blockchain','Elixir.Init',
+                        'Elixir.Legger','Elixir.Transaction',
+                        'Elixir.TransactionPool','Elixir.Wallet']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {extra_applications,[logger]}]}.
