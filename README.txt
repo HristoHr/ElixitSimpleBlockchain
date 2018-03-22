@@ -1,5 +1,5 @@
-# ElixitSimpleBlockchain
-# Open terminal in blockchain folder type command iex -S mix
+ElixitSimpleBlockchain..
+Open terminal in blockchain folder type command iex -S mix
 Init.initAll --> initializes Blockchain (automatically creates gen block) TransactionPool and Legger Gen Servers
 Init.addTxs --> create a few wallets and add a few transactions
 Legger.getAll --> returns all wallets and all balances
