@@ -3,18 +3,12 @@ defmodule Wallet do
   defstruct [
   publicKey: "",
   privateKey: "",
-  #transactionsFrom: [],
-  #transactionsTo: [],
-  #balance: 0
   ]
 def init()do
   {publicKey,privateKey}  = :crypto.generate_key(:ecdh, :secp256k1, :crypto.strong_rand_bytes(16))
   wallet = %Wallet{
-  publicKey: publicKey, #|> Base.encode16(),
-  privateKey: privateKey, #|> Base.encode16(),
-  #transactionsFrom: [],
-  #transactionsTo: [],
-  #balance: 100 #<---for testing
+  publicKey: publicKey,
+  privateKey: privateKey
   }
   Legger.add(publicKey)
   wallet

@@ -4,6 +4,7 @@ defmodule Init do
     Blockchain.init
     Legger.init
     TransactionPool.init
+    #addTxs()
   end
 
   def addTxs do

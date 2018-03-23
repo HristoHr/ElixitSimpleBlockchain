@@ -34,11 +34,20 @@ defmodule Legger do
      {:reply,balance, legger}
   end
 
+  @doc"""
+    Adds new wallet to the Legger.
+    This method is called as soon as a Wallet is created.
+  """
   def handle_call({:add,pubKey}, _from, legger) do
-    legger =  Map.put_new(legger, pubKey, 100) #<--- for testing
+    legger =  Map.put_new(legger, pubKey, 100) #<---Initial balance starts at 100 for testing
     {:reply,legger, legger}
   end
 
+  @doc"""
+    Edit's balance of 2 wallets in a transaction.
+    Substracts the amount from the sending address
+    and adds it to the recieiving one.
+  """
   def handle_call({:edit,fromPubKey,toPubKey,amount}, _from, legger) do
     newBalanceFrom = Map.get(legger,fromPubKey)-amount
     newBalanceTo = Map.get(legger,toPubKey)+amount

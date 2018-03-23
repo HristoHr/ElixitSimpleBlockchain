@@ -8,6 +8,10 @@ defmodule Transaction do
   hash: "",
   signature: ""
   ]
+  @doc"""
+    Creates a a new transaction and signs it.
+    Retirns the transaction structure.
+  """
   def init(fromPubKey,fromPrKey,toPubKey,amount) do
     data = getTransactionData(fromPubKey,toPubKey,amount)
     hash = getTransactionHash(data)
@@ -34,6 +38,11 @@ defmodule Transaction do
     Wallet.signTransaction(fromPrKey,data)
   end
 
+  @doc"""
+    Checks if wallet has enough balance and if the sending
+    wallet has signed the transaction.
+    Returns true or false.
+  """
   def verifyTransaction(tx)do
     (Legger.getBalance(tx.fromPubKey))>=(tx.amount)
     &&

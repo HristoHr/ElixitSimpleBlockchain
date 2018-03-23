@@ -6,7 +6,10 @@ defmodule Block do
   hash: "",
   nonce: 0
   ]
-
+  @doc"""
+  Creates a new block and mines it.
+  Returns the block Structure.
+  """
   def init(rootHash,prevHash) do
     #Maybe I should not be doing this with strings
     {:ok,hash,nonce} = mineBlock(prevHash,rootHash,4)
